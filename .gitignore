@@ -36,3 +36,7 @@ coverage.xml
 .mr.developer.cfg
 .project
 .pydevproject
+
+# Alternate python instances
+venv/
+env/
