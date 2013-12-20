@@ -4,6 +4,7 @@ import os
 from models import Marker
 from forms import addForm, queryForm
 from run import app, db
+from api.v0 import api as api_v0
 
 @app.route('/')
 def index():
@@ -50,6 +51,8 @@ def get_markers(query):
 
 		markers = Marker.query.from_statement(search)
 	return markers
+
+app.register_blueprint(api_v0, url_prefix='/api/v0')
 
 if __name__ == '__main__':
 	app.run()

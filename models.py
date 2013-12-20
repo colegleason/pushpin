@@ -41,3 +41,12 @@ class Marker(db.Model):
 		self.salary = salary
 		self.rating = rating
 		self.valid = 1
+
+        def serialize(self):
+                return {"id": self.id,
+                        "company": self.company,
+                        "location": self.location,
+                        "latlong": [float(self.lat), float(self.lon)],
+                        "type": self.job_type,
+                        "rating": self.rating
+                }
